@@ -32,7 +32,7 @@ const uploaddFirmware = async () => {
         return;
     }
     //validar el tamaño del archivo
-    const fileSizeLimit = 1966080; // 1.9MB
+    const fileSizeLimit = 3932160; // 1.9MB
     if (file.size > fileSizeLimit) {
         toastErrorMsg("El archivo seleccionado es demasiado grande. El tamaño máximo es 1.9MB.");
         return;

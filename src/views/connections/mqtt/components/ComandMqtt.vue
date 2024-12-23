@@ -73,6 +73,7 @@ const data = [
     ["Telegram deshabilitar", '{"protocol":"MQTT","output":"TELEGRAM","value":false}', "Deshabilita los mensajes a telegram."],
     ["Telegram token", '{"protocol":"MQTT","output":"BOTTOKEN","value":"****************"}', "Token que te da el chat bot de telegram mas de 45 caracteres."],
     ["Telegram chaiID", '{"protocol":"MQTT","output":"CHATID","value":"**********"}', "Token que te da el chat bot de telegram mas de 9 digitos."],
+    ["Telegram mensaje", '{"protocol":"MQTT","output":"TELEMENSAJE","value":true}', "Envia mensaje por telegram al chatID guardado."],
 
 ];
 </script>

@@ -12,3 +12,4 @@ export const postTelegram = async (data: ITelegramConfig | null): Promise<{save:
   const resp = await axiosServices.post('device/telegram',data);
   return resp.data;
 };
+// modificar para control

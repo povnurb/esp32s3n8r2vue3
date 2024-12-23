@@ -6,11 +6,13 @@ import { isErrorResponse } from '@/utils/utils';
 import useToastAlert from '@/composables/useToastAlert';
 import useSweetAlert from '@/composables/useSweetAlert';
 import { useSaveStore, useSaveStoreAlarma } from '@/store/save';
+import { postControl } from '@/api/device';
+import { IControl, IOutput } from '@/interfaces';
 
 const saveStore = useSaveStore();
 const saveStoreAlarma = useSaveStoreAlarma();
 
-const { toastErrorMsg, toastSuccessMsg } = useToastAlert();
+const { toastErrorMsg, toastSuccessMsg, toastInfoMsg } = useToastAlert();
 const { swalConfirmation } = useSweetAlert();
 //lo que llega por webSocket
 
@@ -99,6 +101,36 @@ const passwordVisible2 = ref<boolean>(false);
 const togglePasswordVisibility2 = () => {
     passwordVisible2.value = !passwordVisible2.value;
 };
+
+//boton de prueba de mensaje de telegram
+const enviando = ref(false);
+const btnPruebaTelegram = async () => {
+    const data: IControl = {
+        protocol: 'API',
+        output: 'TELEMENSAJE',
+        value: true
+    }
+    enviando.value = true;
+    //console.log("Enviando");
+    try {
+        //console.log("tratando");
+        const resp = await postControl(data);
+        console.log(resp);
+        if (resp.status) {
+            toastInfoMsg('Mensaje enviado');
+            enviando.value = false;
+        }
+    } catch (error: unknown) {
+
+        if (isErrorResponse(error)) {
+            const errorMessage = error.response?.data?.status
+                ? `Error: ${error.response?.data?.status} - ${error.message}`
+                : `Error: ${error.message}`;
+            toastErrorMsg(errorMessage);
+            enviando.value = false;
+        }
+    }
+};
 </script>
 <template>
     <div class="col-lg-12">
@@ -138,6 +170,7 @@ const togglePasswordVisibility2 = () => {
                         <div v-else><i type="button" @click="togglePasswordVisibility2"
                                 :title="`Haz click mostrar contraseña`" class="bi bi-eye-slash"></i></div>
                     </div>
+
                     <div class="row mb-3" id="btnSendMqtt"> <!-- btn auto -->
                         <div class="col-sm-10">
                             <button class="btn btn-primary" type="button" @click="save"><i
@@ -146,8 +179,15 @@ const togglePasswordVisibility2 = () => {
                             </button>
                         </div>
                     </div>
-                </form>
 
+
+                </form>
+                <button class="btn btn-primary" @click="btnPruebaTelegram">
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"
+                        v-if="enviando"></span>
+                    <i class="bi bi-telegram h2" v-else></i>
+                    {{ enviando ? 'Enviando mensaje ...' : 'Recibir mensaje' }}
+                </button>
             </div>
         </div>
     </div>
