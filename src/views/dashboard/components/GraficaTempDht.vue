@@ -53,7 +53,7 @@ const series = ref<Series[]>([{
 
 <template>
     <div class="card">
-        <VueApexCharts width="100%" type="area" :options="options" :series="series">
+        <VueApexCharts width="100%" type="line" :options="options" :series="series">
         </VueApexCharts>
     </div>
 </template>
