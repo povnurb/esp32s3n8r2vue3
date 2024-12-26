@@ -1,5 +1,8 @@
 # vue_cli_esp32s3_n8r2 con vue3
 
+modificar en produccion la Ip:
+src/utils/utils.ts
+
 ## Project setup
 
 ```

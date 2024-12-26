@@ -318,32 +318,36 @@ watch(
                     </div>
                 </div>
             </div>
+
+
+        </div><!-- End Default Accordion Example -->
+
+        <!-- Default Accordion -->
+        <div class="accordion" id="accordionExample2">
             <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
+                <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        <strong>Graficas de equipo de Aire Acondicionado</strong>
+                        data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        <strong>Graficas de los equipos de aire acondicionado</strong>
                     </button>
                 </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <GraficaEva :tEva="apiIndexResponseWs?.tEva" :timeM="apiIndexResponseWs?.timeM"
-                                    :key="apiIndexResponseWs.tEva.tE0" />
-                            </div>
-                            <div class="col-lg-6">
-                                <GraficaCon :tCon="apiIndexResponseWs?.tCond" :timeM="apiIndexResponseWs?.timeM"
-                                    :key="apiIndexResponseWs.tCond.tC0" />
-                            </div>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample2">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <GraficaEva :tEva="apiIndexResponseWs?.tEva" :timeM="apiIndexResponseWs?.timeM"
+                                :key="apiIndexResponseWs.tEva.tE0" />
+                        </div>
+                        <div class="col-lg-6">
+                            <GraficaCon :tCon="apiIndexResponseWs?.tCond" :timeM="apiIndexResponseWs?.timeM"
+                                :key="apiIndexResponseWs.tCond.tC0" />
                         </div>
                     </div>
                 </div>
             </div>
 
-        </div><!-- End Default Accordion Example -->
 
+        </div><!-- End Default Accordion Example -->
 
     </section>
 </template>

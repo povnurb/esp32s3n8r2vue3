@@ -39,7 +39,7 @@ const options = ref<ChartOptions>({
         categories: [props.timeM.tm0, props.timeM.tm1, props.timeM.tm2, props.timeM.tm3, props.timeM.tm4, props.timeM.tm5, props.timeM.tm6, props.timeM.tm7, props.timeM.tm8, props.timeM.tm9, props.timeM.tm10, props.timeM.tm11, props.timeM.tm12, props.timeM.tm13, props.timeM.tm14, props.timeM.tm15, props.timeM.tm16, props.timeM.tm17, props.timeM.tm18, props.timeM.tm19, props.timeM.tm20, props.timeM.tm21, props.timeM.tm22]
     },
     title: {
-        text: 'Temperatura Evaporador 1 °C',
+        text: 'Temp. Evaporador principal (°C)',
         align: 'left'
     },
 });

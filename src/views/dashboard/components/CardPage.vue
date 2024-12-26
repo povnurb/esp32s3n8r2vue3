@@ -31,13 +31,13 @@ const props = defineProps<{
     <!-- Card de la temperatura del evaporador -->
     <div class="col-xxl-3 col-md-6" v-if="info">
         <!-- Temp evaporavor -->
-        <DashboardCard title="Temperatura del evaporavor 1"
+        <DashboardCard title="Temperatura del evaporavor principal"
             subtitle="Indica la temperatura actual del evaporavor principal" color="sales-card" icon="thermometer-snow"
             :value="props.info.tempEvaporador" />
     </div><!-- End Temp evaporavor Card -->
     <div class="col-xxl-3 col-md-6" v-if="info">
         <!-- tiempo de actividad -->
-        <DashboardCard title="Temperatura del evaporador 2"
+        <DashboardCard title="Temperatura del evaporador respaldo"
             subtitle="Indica la temperatura actual del evaporador de respaldo" color="sales-card"
             icon="thermometer-snow" :value="props.info.tempCondensador" />
     </div><!-- End tiempo de actividad Card -->
