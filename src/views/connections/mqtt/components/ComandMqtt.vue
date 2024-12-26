@@ -16,7 +16,7 @@ const data = [
     ["Desactivar relay2", '{"protocol":"MQTT","output":"RELAY1","value":false}', "Desactiva el relay 2."],
     ["Activar buzzer", '{"protocol":"MQTT","output":"BUZZER","value":true}', "Activa zumbador."],
     ["Desactivar buzzer", '{"protocol":"MQTT","output":"BUZZER","value":false}', "Desactiva zumbador."],
-    ["Tiempo gráfica", '{"protocol":"MQTT","output":"tgrafica","value":1}', "Tiempo de muestreo de temperaturas y humedades de 1 a 1440 minutos."],
+    //["Tiempo gráfica", '{"protocol":"MQTT","output":"tgrafica","value":1}', "Tiempo de muestreo de temperaturas y humedades de 1 a 1440 minutos."],
     ["Valor dimmer", '{"protocol":"MQTT","output":"DIMMER","value":50}', "Ciclo de trabajo del dimmer el valor es de 0 a 100%."],
     ["Logica Alarma1", '{"protocol":"MQTT","output":"ALARM_LOGICA1","value":true}', "Activa la alarma con un valor de 0 volts (tierra)."],
     ["Logica Alarma1", '{"protocol":"MQTT","output":"ALARM_LOGICA1","value":false}', "Activa la alarma con un valor positivo de voltaje 3.3 volts."],
