@@ -7,7 +7,7 @@ import useToastAlert from '@/composables/useToastAlert';
 import useSweetAlert from '@/composables/useSweetAlert';
 import { useSaveStore, useSaveStoreAlarma } from '@/store/save';
 import { postControl } from '@/api/device';
-import { IControl, IOutput } from '@/interfaces';
+import { IControl } from '@/interfaces';
 
 const saveStore = useSaveStore();
 const saveStoreAlarma = useSaveStoreAlarma();

@@ -26,7 +26,7 @@ const props = defineProps<{
     <div class="col-xxl-3 col-md-6" v-if="info">
         <!-- Temp evaporavor -->
         <DashboardCard title="Humedad en sala" subtitle="Indica la humedad relativa presente en la sala"
-            color="sales-card" icon="droplet-half" :value="props.info.tempEvaporador" />
+            color="sales-card" icon="droplet-half" :value="props.info.humdht22" />
     </div><!-- End Temp evaporavor Card -->
     <!-- Card de la temperatura del evaporador -->
     <div class="col-xxl-3 col-md-6" v-if="info">

@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import VueApexCharts from 'vue3-apexcharts';
 import { ref, defineProps } from 'vue';
-import { ITEva, ITmeM } from '@/interfaces';
+import { ITEva, ItimeM } from '@/interfaces';
 
 //ITEva
 const props = defineProps<{
     tEva: ITEva
-    timeM: ITmeM
+    timeM: ItimeM
 }>();
 
 

@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import VueApexCharts from 'vue3-apexcharts';
 import { ref, defineProps } from 'vue';
-import { ITdht22, ITmeM } from '@/interfaces';
+import { ITdht22, ItimeM } from '@/interfaces';
 
 //ITEva
 const props = defineProps<{
     tdht22: ITdht22
-    timeM: ITmeM
+    timeM: ItimeM
 }>();
 
 
@@ -46,8 +46,8 @@ const options = ref<ChartOptions>({
 
 const series = ref<Series[]>([{
     name: 'Temperatura:',
-    data: [props.tdht22.cT1, props.tdht22.cT2, props.tdht22.cT3, props.tdht22.cT4, props.tdht22.cT5, props.tdht22.cT6, props.tdht22.cT7, props.tdht22.cT8, props.tdht22.cT9, props.tdht22.cT10, props.tdht22.cT11, props.tdht22.cT12,
-    props.tdht22.cT13, props.tdht22.cT14, props.tdht22.cT15, props.tdht22.cT16, props.tdht22.cT17, props.tdht22.cT18, props.tdht22.cT19, props.tdht22.cT20, props.tdht22.cT21, props.tdht22.cT22
+    data: [props.tdht22.cT1 / 10, props.tdht22.cT2 / 10, props.tdht22.cT3 / 10, props.tdht22.cT4 / 10, props.tdht22.cT5 / 10, props.tdht22.cT6 / 10, props.tdht22.cT7 / 10, props.tdht22.cT8 / 10, props.tdht22.cT9 / 10, props.tdht22.cT10 / 10, props.tdht22.cT11 / 10, props.tdht22.cT12 / 10,
+    props.tdht22.cT13 / 10, props.tdht22.cT14 / 10, props.tdht22.cT15 / 10, props.tdht22.cT16 / 10, props.tdht22.cT17 / 10, props.tdht22.cT18 / 10, props.tdht22.cT19 / 10, props.tdht22.cT20 / 10, props.tdht22.cT21 / 10, props.tdht22.cT22 / 10
     ]
 }]);
 

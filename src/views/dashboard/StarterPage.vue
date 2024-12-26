@@ -4,7 +4,7 @@ import { IApiIndexResponseWs } from '@/interfaces';
 import BaseBreadcrumb from '@/components/BaseBreadcrumb.vue';
 import CardPage from './components/CardPage.vue';
 import ReleCard from './components/ReleCard.vue';
-import DimmerCard from './components/DimmerCard.vue';
+//import DimmerCard from './components/DimmerCard.vue';
 import GraficaTempDht from './components/GraficaTempDht.vue';
 import GraficaHumDht from './components/GraficaHumDht.vue';
 import GraficaEva from './components/GraficaEva.vue';
@@ -203,30 +203,30 @@ const apiIndexResponseWs = ref<IApiIndexResponseWs>({
         //tC23: 0
     },
     timeM: {
-        tC0: 0,
-        tC1: 0,
-        tC2: 0,
-        tC3: 0,
-        tC4: 0,
-        tC5: 0,
-        tC6: 0,
-        tC7: 0,
-        tC8: 0,
-        tC9: 0,
-        tC10: 0,
-        tC11: 0,
-        tC12: 0,
-        tC13: 0,
-        tC14: 0,
-        tC15: 0,
-        tC16: 0,
-        tC17: 0,
-        tC18: 0,
-        tC19: 0,
-        tC20: 0,
-        tC21: 0,
-        tC22: 0,
-        //tC23: 0
+        tm0: 0,
+        tm1: 0,
+        tm2: 0,
+        tm3: 0,
+        tm4: 0,
+        tm5: 0,
+        tm6: 0,
+        tm7: 0,
+        tm8: 0,
+        tm9: 0,
+        tm10: 0,
+        tm11: 0,
+        tm12: 0,
+        tm13: 0,
+        tm14: 0,
+        tm15: 0,
+        tm16: 0,
+        tm17: 0,
+        tm18: 0,
+        tm19: 0,
+        tm20: 0,
+        tm21: 0,
+        tm22: 0,
+        //tm23: 0
     }
 
 });
