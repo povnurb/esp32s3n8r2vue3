@@ -279,17 +279,17 @@ watch(
         </div>
         <!--el row los acomoda en filas-->
         <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <ReleCard :outputs="apiIndexResponseWs?.outputs[0]" />
             </div>
             <!--Relay2-->
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <ReleCard :outputs="apiIndexResponseWs?.outputs[1]" />
             </div>
             <!--dimmer--><!--GraficaTempDht-->
-            <div class="col-lg-4">
+            <!--<div class="col-lg-4">
                 <DimmerCard :outputs="apiIndexResponseWs?.outputs" />
-            </div>
+            </div>-->
             <!--<div class="col-lg-6">
                 <GrafEvayCond :outputs="apiIndexResponseWs?.outputs" />
             </div>-->
@@ -301,7 +301,7 @@ watch(
                 <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Graficas de sala
+                        <strong>Graficas de sala</strong>
                     </button>
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
@@ -322,7 +322,7 @@ watch(
                 <h2 class="accordion-header" id="headingTwo">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Graficas de equipo de Aire Acondicionado
+                        <strong>Graficas de equipo de Aire Acondicionado</strong>
                     </button>
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
