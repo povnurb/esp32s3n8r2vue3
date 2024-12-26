@@ -35,7 +35,7 @@ const options = ref<ChartOptions>({
         id: 'vuechart-example'
     },
     xaxis: {
-        categories: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+        categories: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
     },
     title: {
         text: 'Humedad relativa %',
@@ -46,7 +46,7 @@ const options = ref<ChartOptions>({
 const series = ref<Series[]>([{
     name: 'Humedad:',
     data: [props.hdht22.cH0, props.hdht22.cH1, props.hdht22.cH2, props.hdht22.cH3, props.hdht22.cH4, props.hdht22.cH5, props.hdht22.cH6, props.hdht22.cH7, props.hdht22.cH8, props.hdht22.cH9, props.hdht22.cH10, props.hdht22.cH11, props.hdht22.cH12,
-    props.hdht22.cH13, props.hdht22.cH14, props.hdht22.cH15, props.hdht22.cH16, props.hdht22.cH17, props.hdht22.cH18, props.hdht22.cH19, props.hdht22.cH20, props.hdht22.cH21, props.hdht22.cH22, props.hdht22.cH23
+    props.hdht22.cH13, props.hdht22.cH14, props.hdht22.cH15, props.hdht22.cH16, props.hdht22.cH17, props.hdht22.cH18, props.hdht22.cH19, props.hdht22.cH20, props.hdht22.cH21, props.hdht22.cH22
     ]
 }]);
 

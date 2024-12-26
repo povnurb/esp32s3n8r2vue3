@@ -117,6 +117,7 @@ export interface IApiIndexResponseWs {
     hdht22: IHdht22;
     tEva: ITEva;
     tCond: ITCond;
+    timeM: ItimeM;
     //TODO: agregar mas info
 }
 
@@ -144,7 +145,7 @@ export interface ITdht22 {
     cT20: number;
     cT21: number;
     cT22: number;
-    cT23: number;
+    //cT23: number;
 }
 
 export interface IHdht22 {
@@ -171,7 +172,7 @@ export interface IHdht22 {
     cH20: number;
     cH21: number;
     cH22: number;
-    cH23: number;
+    //cH23: number;
 }
 
 export interface ITEva {
@@ -198,7 +199,7 @@ export interface ITEva {
     tE20: number;
     tE21: number;
     tE22: number;
-    tE23: number;
+    //tE23: number;
 }
 
 export interface ITCond {
@@ -225,5 +226,32 @@ export interface ITCond {
     tC20: number;
     tC21: number;
     tC22: number;
-    tC23: number;
+    //tC23: number;
+}
+
+export interface ItimeM {
+    tm0: number;
+    tm1: number;
+    tm2: number;
+    tm3: number;
+    tm4: number;
+    tm5: number;
+    tm6: number;
+    tm7: number;
+    tm8: number;
+    tm9: number;
+    tm10: number;
+    tm11: number;
+    tm12: number;
+    tm13: number;
+    tm14: number;
+    tm15: number;
+    tm16: number;
+    tm17: number;
+    tm18: number;
+    tm19: number;
+    tm20: number;
+    tm21: number;
+    tm22: number;
+    //tm23: number;
 }

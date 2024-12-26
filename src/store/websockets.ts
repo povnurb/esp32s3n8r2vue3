@@ -160,6 +160,32 @@ export const useWebsocketsStore = defineStore("websocket",{
                 tC22: 0,
                 tC23: 0
             },
+            timeM: {
+                tm0: 0,
+                tm1: 0,
+                tm2: 0,
+                tm3: 0,
+                tm4: 0,
+                tm5: 0,
+                tm6: 0,
+                tm7: 0,
+                tm8: 0,
+                tm9: 0,
+                tm10: 0,
+                tm11: 0,
+                tm12: 0,
+                tm13: 0,
+                tm14: 0,
+                tm15: 0,
+                tm16: 0,
+                tm17: 0,
+                tm18: 0,
+                tm19: 0,
+                tm20: 0,
+                tm21: 0,
+                tm22: 0,
+                tm23: 0
+            },
         } as IApiIndexResponseWs, //TODO: modificar el tipo a IApiIndexResponseWs
         flashFirmware: 0 as number,
         clientConnection: false

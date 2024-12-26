@@ -122,7 +122,7 @@ const apiIndexResponseWs = ref<IApiIndexResponseWs>({
         cT20: 0,
         cT21: 0,
         cT22: 0,
-        cT23: 0
+        //cT23: 0
     },
     hdht22: {
         cH0: 0,
@@ -148,7 +148,7 @@ const apiIndexResponseWs = ref<IApiIndexResponseWs>({
         cH20: 0,
         cH21: 0,
         cH22: 0,
-        cH23: 0
+        //cH23: 0
     },
     tEva: {
         tE0: 0,
@@ -174,7 +174,7 @@ const apiIndexResponseWs = ref<IApiIndexResponseWs>({
         tE20: 0,
         tE21: 0,
         tE22: 0,
-        tE23: 0
+        //tE23: 0
     },
     tCond: {
         tC0: 0,
@@ -200,7 +200,33 @@ const apiIndexResponseWs = ref<IApiIndexResponseWs>({
         tC20: 0,
         tC21: 0,
         tC22: 0,
-        tC23: 0
+        //tC23: 0
+    },
+    timeM: {
+        tC0: 0,
+        tC1: 0,
+        tC2: 0,
+        tC3: 0,
+        tC4: 0,
+        tC5: 0,
+        tC6: 0,
+        tC7: 0,
+        tC8: 0,
+        tC9: 0,
+        tC10: 0,
+        tC11: 0,
+        tC12: 0,
+        tC13: 0,
+        tC14: 0,
+        tC15: 0,
+        tC16: 0,
+        tC17: 0,
+        tC18: 0,
+        tC19: 0,
+        tC20: 0,
+        tC21: 0,
+        tC22: 0,
+        //tC23: 0
     }
 
 });
@@ -282,10 +308,12 @@ watch(
                     data-bs-parent="#accordionExample">
                     <div class="row">
                         <div class="col-lg-6">
-                            <GraficaTempDht :tdht22="apiIndexResponseWs?.tdht22" :key="apiIndexResponseWs.tdht22.cT0" />
+                            <GraficaTempDht :tdht22="apiIndexResponseWs?.tdht22" :timeM="apiIndexResponseWs?.timeM"
+                                :key="apiIndexResponseWs.timeM.tm0" />
                         </div>
                         <div class="col-lg-6">
-                            <GraficaHumDht :hdht22="apiIndexResponseWs?.hdht22" :key="apiIndexResponseWs.hdht22.cH0" />
+                            <GraficaHumDht :hdht22="apiIndexResponseWs?.hdht22" :timeM="apiIndexResponseWs?.timeM"
+                                :key="apiIndexResponseWs.hdht22.cH0" />
                         </div>
                     </div>
                 </div>
@@ -302,10 +330,12 @@ watch(
                     <div class="accordion-body">
                         <div class="row">
                             <div class="col-lg-6">
-                                <GraficaEva :tEva="apiIndexResponseWs?.tEva" :key="apiIndexResponseWs.tEva.tE0" />
+                                <GraficaEva :tEva="apiIndexResponseWs?.tEva" :timeM="apiIndexResponseWs?.timeM"
+                                    :key="apiIndexResponseWs.tEva.tE0" />
                             </div>
                             <div class="col-lg-6">
-                                <GraficaCon :tCon="apiIndexResponseWs?.tCond" :key="apiIndexResponseWs.tCond.tC0" />
+                                <GraficaCon :tCon="apiIndexResponseWs?.tCond" :timeM="apiIndexResponseWs?.timeM"
+                                    :key="apiIndexResponseWs.tCond.tC0" />
                             </div>
                         </div>
                     </div>
