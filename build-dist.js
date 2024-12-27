@@ -2,8 +2,8 @@ const Promise = require("bluebird");
 const fs = Promise.promisifyAll(require("fs"));
 
 const numbers = [
-  29, 33, 68, 73, 135, 183, 261, 414, 436, 491, 599, 642, 649, 671, 724, 837,
-  855,
+  23, 29, 33, 68, 73, 135, 183, 261, 289, 338, 414, 436, 599, 642, 649, 671,
+  724, 837, 855,
 ];
 
 let promises = [];
