@@ -38,15 +38,7 @@ const MainRoutes = {
                 title: 'Relevadores',
             }
         },
-        /*{
-            name: 'Sensores',
-            path: '/esp-wifi',
-            component: ()=> import('@/views/connections/wifi/WifiPage.vue'),
-            meta: {
-                title: 'Sensores',
-            }
-        },*/
-        //Este si funciona
+        
         {
             name: 'WiFi',
             path: '/esp-wifi',
@@ -69,6 +61,14 @@ const MainRoutes = {
             component: ()=> import('@/views/device/telegram/TelePage.vue'),
             meta: {
                 title: 'Telegram',
+            }
+        },
+        {
+            name: 'Historial',
+            path: '/esp-historial',
+            component: ()=> import('@/views/device/historial/HistorialPage.vue'),
+            meta: {
+                title: 'Historial de alarmas',
             }
         },
         {

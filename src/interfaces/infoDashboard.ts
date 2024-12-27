@@ -106,6 +106,14 @@ export interface IAlarmas {
     off: string;
     count: number;
 }[];
+export interface IHistory {
+
+		alarma: string;
+		fechas: string;
+		status: boolean;
+	
+}[];
+
 // TODO: implementar
 export interface IApiIndexResponseWs {
     wifi: IWifiInfo;

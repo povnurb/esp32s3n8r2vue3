@@ -64,8 +64,13 @@ const sidebarItems: IMenu[] = [
         to: '#',
         children: [
             {
+                title: 'Historial de Alarmas', 
+                icon: 'circle', 
+                to: '/esp-historial'
+            },
+            {
                 title: 'Etiquetado de Alarmas', 
-                icon: 'card-list', 
+                icon: 'circle', 
                 to: '/esp-etiquetado'
             },
             {
