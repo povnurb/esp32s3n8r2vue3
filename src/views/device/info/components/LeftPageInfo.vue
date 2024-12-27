@@ -11,7 +11,7 @@ const props = defineProps<{
 // Mapa para relacionar los nombres de los encabezados con las propiedades del objeto info
 const infoKeysMap: Record<string, keyof IDeviceInfo> = {
     "Serie": "device_serial",
-    "Tarjeta": "device_name",
+    "Sala": "sala",
     "Identificador": "device_id",
     "mDNS": "device_mdns",
     "Firmware ver.": "device_firmware",

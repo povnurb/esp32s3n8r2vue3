@@ -120,7 +120,7 @@ const apiIndexResponseWs = ref<IApiIndexResponseWs>({
         cT20: 0,
         cT21: 0,
         cT22: 0,
-        cT23: 0
+        //cT23: 0
     },
     hdht22: {
         cH0: 0,
@@ -146,7 +146,7 @@ const apiIndexResponseWs = ref<IApiIndexResponseWs>({
         cH20: 0,
         cH21: 0,
         cH22: 0,
-        cH23: 0
+        //cH23: 0
     },
     tEva: {
         tE0: 0,
@@ -172,7 +172,7 @@ const apiIndexResponseWs = ref<IApiIndexResponseWs>({
         tE20: 0,
         tE21: 0,
         tE22: 0,
-        tE23: 0
+        //tE23: 0
     },
     tCond: {
         tC0: 0,
@@ -198,7 +198,33 @@ const apiIndexResponseWs = ref<IApiIndexResponseWs>({
         tC20: 0,
         tC21: 0,
         tC22: 0,
-        tC23: 0
+        //tC23: 0
+    },
+    timeM: {
+        tm0: 0,
+        tm1: 0,
+        tm2: 0,
+        tm3: 0,
+        tm4: 0,
+        tm5: 0,
+        tm6: 0,
+        tm7: 0,
+        tm8: 0,
+        tm9: 0,
+        tm10: 0,
+        tm11: 0,
+        tm12: 0,
+        tm13: 0,
+        tm14: 0,
+        tm15: 0,
+        tm16: 0,
+        tm17: 0,
+        tm18: 0,
+        tm19: 0,
+        tm20: 0,
+        tm21: 0,
+        tm22: 0,
+        //tm23: 0
     }
 
 });
