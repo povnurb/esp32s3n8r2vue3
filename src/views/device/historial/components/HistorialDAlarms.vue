@@ -4,16 +4,27 @@ import DataTablesCore from 'datatables.net';
 import { getHistorial } from '@/api/alarms';
 import useToastAlert from '@/composables/useToastAlert';
 import { ref, defineProps, onMounted } from 'vue';
-import { IHistory } from '@/interfaces/infoDashboard';
+//import { IHistory } from '@/interfaces/infoDashboard';
 import { isErrorResponse } from '@/utils/utils';
 //https://datatables.net/blog/2022/vue
 DataTable.use(DataTablesCore);
 const { toastErrorMsg } = useToastAlert();
-const elHistory = ref<IHistory>({
+/*const elHistory = ref<IHistory>({
     alarma: "",
     fechas: "",
     status: false,
-})
+})*/
+
+type IHistory = {
+    alarma: string;
+    fechas: string;
+    status: boolean;
+};
+
+// Cambiar `elHistory` para que sea un array de IHistory
+const elHistory = ref<IHistory[]>([]); //se cambia de un array de objetos a un array de arrays
+
+const data = ref<string[][]>([]); // Array de arrays para la DataTable
 
 // cuando se carga el componente
 onMounted(async () => {
@@ -23,8 +34,17 @@ onMounted(async () => {
 const elHistorial = async () => {
     try {
         const resp = await getHistorial();
-        elHistory.value = resp;
-
+        if (Array.isArray(resp)) {
+            // Mapear los datos para la DataTable
+            elHistory.value = resp.map((item) => ({
+                alarma: item.alarma,
+                fechas: item.fechas,
+                status: item.status,
+            }));
+        } else {
+            console.error("La respuesta no es un array:", resp);
+        }
+        console.log(elHistory.value);
     } catch (error: unknown) {
         //console.error('Error al obtener la información del WiFi:', error);
         if (isErrorResponse(error)) {
@@ -36,35 +56,31 @@ const elHistorial = async () => {
         }
     }
 }
-
+// lo qe se necesita
 /*
-const props = defineProps<{
-    historial: ITCond
-    timeM: ItimeM
-}>();
-*/
-/**
- * IHistory
- */
-
-
-
-const data = [
-    ['{"protocol":"MQTT","output":"RELAY1","value":true}'],
-    ['{"protocol":"MQTT","output":"DeviceName","value":"Petrolera_PTTI1"}'],
-
+[
+  ["El historial de alarmas inicia", "26-12-2024 21:36", "Inactivo"],
+  ["ALARMA IO38", "26-12-2024 21:36", "Activo"]
 ];
+*/
+
+
 </script>
 
 <template>
     <div class="col-lg-12 card ">
-        <h5 class="card-title">Historial de alarmas</h5>
-        <DataTable :data="data" class="display table datatable">
+        <h5 class="card-title">Aquí puedes buscar alarmas por fecha, alarma o por estatus</h5>
+        <DataTable :data="elHistory.map(item => [item.alarma, item.fechas, item.status ? 'Se presentó' : 'Se clareó'])"
+            class="display table datatable">
             <thead>
                 <tr>
                     <th>
-                        <b>Alarmas: </b>
+                        <b>Alarma </b>
                     </th>
+                    <th>fecha</th>
+                    <!--<th>Value</th>-->
+                    <!--<th data-type="date" data-format="YYYY/DD/MM">Start Date</th>-->
+                    <th>presente</th>
                 </tr>
             </thead>
         </DataTable>
