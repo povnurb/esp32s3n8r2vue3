@@ -1,6 +1,7 @@
 
 export interface IWifiConfig {
     wifi_mode?: boolean;
+    device_name: '',
     wifi_ssid?: string;
     wifi_password?: string;
     wifi_ssid2?: string;

@@ -22,6 +22,7 @@ const receivedData = ref<IEventCallback>({ message: '' });
 
 const wifi = ref<IWifiConfig>({
     wifi_mode: false,
+    device_name: '',
     wifi_ssid: '',
     wifi_password: '',
     wifi_ssid2: '',
@@ -137,6 +138,17 @@ const save = async (): Promise<void> => {
                         </div>
                     </div>
                     <hr>
+                    <div>
+                        <!-- auto - input ssid -->
+                        <div class="row mb-3 mt-3"><label class="col-sm-4 col-form-label mt-2"
+                                for="device_name">mDNS</label>
+                            <div class="col-sm-8 mt-2">
+                                http://<input class="form" type="text" placeholder="mDNS" id="device_name"
+                                    name="device_name" v-model="wifi.device_name" :disabled="!wifi.wifi_mode">.local/
+                            </div>
+                            <code>Nota: minusculas y guion medio (-) menos de 20 caracteres</code>
+                        </div>
+                    </div>
                     <div>
                         <!-- auto - input ssid -->
                         <div class="row mb-3 mt-3"><label class="col-sm-4 col-form-label mt-2" for="wifi_ssid">SSID

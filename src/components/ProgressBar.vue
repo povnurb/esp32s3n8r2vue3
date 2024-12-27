@@ -28,6 +28,6 @@ const shouldShow = computed(() => (props.percentage ?? 0) > 0);
                 id="progressRestore">{{ props.percentage }}%</div>
 
         </div>
-        <h3 class="card-title">Espere, regresando a pagina principal ...</h3>
+        <h3 class="card-title">Espere, regresando a página principal ...</h3>
     </div>
 </template>
