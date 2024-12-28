@@ -153,7 +153,7 @@ export interface ITdht22 {
     cT20: number;
     cT21: number;
     cT22: number;
-    //cT23: number;
+    cT23: number;
 }
 
 export interface IHdht22 {
@@ -180,7 +180,7 @@ export interface IHdht22 {
     cH20: number;
     cH21: number;
     cH22: number;
-    //cH23: number;
+    cH23: number;
 }
 
 export interface ITEva {
@@ -207,7 +207,7 @@ export interface ITEva {
     tE20: number;
     tE21: number;
     tE22: number;
-    //tE23: number;
+    tE23: number;
 }
 
 export interface ITCond {
@@ -234,7 +234,7 @@ export interface ITCond {
     tC20: number;
     tC21: number;
     tC22: number;
-    //tC23: number;
+    tC23: number;
 }
 
 export interface ItimeM {
@@ -261,5 +261,5 @@ export interface ItimeM {
     tm20: number;
     tm21: number;
     tm22: number;
-    //tm23: number;
+    tm23: number;
 }
