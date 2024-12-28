@@ -46,7 +46,7 @@ const options = ref<ChartOptions>({
 
 const series = ref<Series[]>([{
     name: 'Temperatura:',
-    data: [props.tdht22.cT1 / 10, props.tdht22.cT2 / 10, props.tdht22.cT3 / 10, props.tdht22.cT4 / 10, props.tdht22.cT5 / 10, props.tdht22.cT6 / 10, props.tdht22.cT7 / 10, props.tdht22.cT8 / 10, props.tdht22.cT9 / 10, props.tdht22.cT10 / 10, props.tdht22.cT11 / 10, props.tdht22.cT12 / 10,
+    data: [props.tdht22.cT0 / 10, props.tdht22.cT1 / 10, props.tdht22.cT2 / 10, props.tdht22.cT3 / 10, props.tdht22.cT4 / 10, props.tdht22.cT5 / 10, props.tdht22.cT6 / 10, props.tdht22.cT7 / 10, props.tdht22.cT8 / 10, props.tdht22.cT9 / 10, props.tdht22.cT10 / 10, props.tdht22.cT11 / 10, props.tdht22.cT12 / 10,
     props.tdht22.cT13 / 10, props.tdht22.cT14 / 10, props.tdht22.cT15 / 10, props.tdht22.cT16 / 10, props.tdht22.cT17 / 10, props.tdht22.cT18 / 10, props.tdht22.cT19 / 10, props.tdht22.cT20 / 10, props.tdht22.cT21 / 10, props.tdht22.cT22 / 10
     ]
 }]);
