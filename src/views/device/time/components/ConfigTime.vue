@@ -50,7 +50,7 @@ const save = async (): Promise<void> => {
             if (resp) {
                 toastSuccessMsg("Fecha y hora actualizada");
                 await getData();
-                saveStore.saveSuccess(true);
+                //saveStore.saveSuccess(true);
             }
         }
         //console.log(time.value.fecha);
@@ -99,7 +99,7 @@ const save = async (): Promise<void> => {
                                                 Guardar
 
                                             </button>
-                                            <code>Nota: Actualizar página para ver cambios en la fecha y hora.</code>
+
                                         </div>
                                     </div>
                                 </form>

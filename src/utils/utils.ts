@@ -5,7 +5,7 @@ const defaultWebpackPorts =[8080,8081];
 export const getBaseUrl = () => {
     const { hostname,port,protocol } = window.location;
     const serverUrl = port && defaultWebpackPorts.includes(Number(port)) 
-    ? `${protocol}//192.168.1.73` //desarrollo en local 229 o 68 trabajo y 72 hogar
+    ? `${protocol}//192.168.1.74` //desarrollo en local 229 o 68 trabajo y 72 hogar
     : `${protocol}//${hostname}`;//para produccion esp32
     return `${serverUrl}/api/`; // indica que es un http://192.168.1.72/api/
 }
@@ -19,7 +19,7 @@ export const isErrorResponse =(error: unknown): error is IErrorResponse=>(
 export const getBaseUrlWebsockets =(): string =>{
     const { hostname,port} = window.location;
     const serverUrl = port && defaultWebpackPorts.includes(Number(port)) 
-    ? `ws://192.168.1.73/ws` //desarrollo en local 229 o 68 trabajo y 72 hogar
+    ? `ws://192.168.1.74/ws` //desarrollo en local 229 o 68 trabajo y 72 hogar
     : `ws://${hostname}/ws`;//para produccion esp32
     return `${serverUrl}`; // indica que es un ws://192.168.1.72/ws
 }
