@@ -10,24 +10,33 @@ import { scanAlarmas } from '@/api/alarms';
 import { isErrorResponse } from '@/utils/utils';
 import useToastAlert from '@/composables/useToastAlert';
 import { useSaveStore, useSaveStoreAlarma } from '@/store/save';
-import { onMounted, ref, watch } from 'vue';
+import { onMounted, onUnmounted, ref, watch, reactive } from 'vue';
 const saveStore = useSaveStore();
 const saveStoreAlarma = useSaveStoreAlarma();
 const { toastErrorMsg } = useToastAlert();
+const mostrar = ref(true);
 
 const save = ref(false);
 const saveAlarm = ref(false);
 
-const alarmas = ref<IAlarmasConfig>({
+const alarmas = ref<{ status: boolean }[]>([]);
 
-})
+let intervalId: ReturnType<typeof setInterval>;
 
+onMounted(() => {
+    // Ejecuta la función al montar el componente
+    scanAlarms();
 
-onMounted(async () => {
-    await scanAlarms();
+    // Configura un intervalo para actualizar periódicamente
+    intervalId = setInterval(scanAlarms, 5000); // Cada 5 segundos
+
     save.value = saveStore.getSaveStore();
     saveAlarm.value = saveStoreAlarma.getAlarmaStore();
-    //setInterval(saveStoreAlarma.getAlarmaStore(), 1000);
+});
+
+onUnmounted(() => {
+    // Limpia el intervalo cuando se desmonte el componente
+    clearInterval(intervalId);
 });
 
 watch(
@@ -40,37 +49,33 @@ watch(
         saveAlarm.value = newValueAlarm; //segun si cambia de valor 
     }
 );
-/*
-watch(
-    () => alarmas.value as IAlarmasConfig,
-    (newMessage) => {
-        if (newMessage) {
-            alarmas.value = newMessage;
-            console.log(newMessage);
-        }
-    }
-)
-*/
 
+watch(
+    () => alarmas.value.map(a => a.status),
+    (newValues, oldValues) => {
+        console.log('Cambio detectado:', { oldValues, newValues });
+        if (newValues.some(status => status)) {
+            console.log('Alarma detectada, ejecutando acción.');
+            saveStoreAlarma.alarmaSuccess(true);
+            saveAlarm.value = true;
+
+        }
+        // Si todos los valores son falsos, mostrar será falso, de lo contrario, será verdadero
+        mostrar.value = newValues.every(status => !status);
+    },
+    { deep: true }
+);
 
 
 const scanAlarms = async () => {
     try {
         const resp = await scanAlarmas();
-        alarmas.value = resp;
-        //status1 = alarmas.value?.alarmas?.[0].status as boolean;
-        //status2 = alarmas.value?.alarmas?.[1].status as boolean;
+        console.log('Datos obtenidos de la API:', resp);
 
-        if (alarmas.value?.alarmas?.[0].status || alarmas.value?.alarmas?.[1].status || alarmas.value?.alarmas?.[2].status || alarmas.value?.alarmas?.[3].status || alarmas.value?.alarmas?.[4].status || alarmas.value?.alarmas?.[5].status || alarmas.value?.alarmas?.[6].status || alarmas.value?.alarmas?.[7].status) {
-            //console.log(status1, status2, status3, status4, status5, status6, status7, status8);
-            saveStoreAlarma.alarmaSuccess(true);
-            saveAlarm.value = true;
-            toastErrorMsg("Se presento una alarma");
-
-
-        }
+        alarmas.value = (resp.alarmas || []).map(alarm => ({
+            status: alarm.status ?? false,
+        }));
     } catch (error: unknown) {
-        //console.error('Error al obtener la información del WiFi:', error);
         if (isErrorResponse(error)) {
             const errorMessage = error.response?.data?.status
                 ? `Error: ${error.response?.data?.status} - ${error.message}`
@@ -79,7 +84,7 @@ const scanAlarms = async () => {
             saveStoreAlarma.alarmaError();
         }
     }
-}
+};
 
 </script>
 
@@ -91,7 +96,7 @@ const scanAlarms = async () => {
             <section>
                 <div class="row">
                     <AlertMessage v-if="save" />
-                    <AlarmMessage v-if="saveAlarm" />
+                    <AlarmMessage v-if="saveAlarm" :mostrar="mostrar" />
                 </div>
 
             </section>

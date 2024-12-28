@@ -87,7 +87,7 @@ const parpadear = () => {
                     <!--Probando modal-->
                     <!--no hay alarma-->
                     <button type="button"
-                        class="col-lg-12 alert alert-light bg-success border-1 alert-dismissible fade show"
+                        class="col-lg-12 col-md-12 col-sm-12 alert alert-light bg-success border-1 alert-dismissible fade show"
                         data-bs-toggle="" :data-bs-target="`#name${numero}`" v-if="off">
 
                         <h5>
@@ -106,7 +106,7 @@ const parpadear = () => {
                     </a>
                     <!--hay alarma-->
                     <button type="button"
-                        class="col-lg-12 alert alert-light bg-danger border-1 alert-dismissible fade show"
+                        class="col-lg-12 col-md-12 col-sm-12 alert alert-light bg-danger border-1 alert-dismissible fade show"
                         data-bs-toggle="" :data-bs-target="`#name${numero}`" v-else>
 
                         <h5>

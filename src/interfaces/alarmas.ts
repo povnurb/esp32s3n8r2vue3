@@ -29,15 +29,8 @@ export interface IAlarmPostConfig { //lo que mandará en el post
 }[]
 }
 
-export interface IAlarmasResponse{	//lo que recibe del get
+export interface IAlarmasResponse{	
 	
-	//rssiStatus: number;
-	//wifiQuality: number;
-	//wifiStatus: boolean;
-	//mqttStatus: boolean;
-	//serial: string;
-	//device: string;
-	//code: number;
 	cantidad: number;
 	prueba_de_alarmas: boolean;
 	alarmas?: {
