@@ -15,24 +15,35 @@ const props = defineProps<{
 interface ChartOptions {
     chart: {
         id: string;
+        zoom: {
+            enabled: false,
+        };
     };
     xaxis: {
         categories: number[];
     };
     title: {
         text: string;
-        align: 'left';
+        align: string;
     };
+    stroke: {
+        curve: string;
+    };
+
 }
 
 interface Series {
     name: string;
     data: number[];
+
 }
 
 const options = ref<ChartOptions>({
     chart: {
-        id: 'vuechart-example'
+        id: 'vuechart-example',
+        zoom: {
+            enabled: false,
+        },
     },
     xaxis: {
         //categories: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
@@ -42,6 +53,9 @@ const options = ref<ChartOptions>({
         text: 'Temperatura en sala (°C)',
         align: 'left'
     },
+    stroke: {
+        curve: 'smooth'
+    },
 });
 
 const series = ref<Series[]>([{
@@ -49,13 +63,14 @@ const series = ref<Series[]>([{
     data: [props.tdht22.cT0 / 10, props.tdht22.cT1 / 10, props.tdht22.cT2 / 10, props.tdht22.cT3 / 10, props.tdht22.cT4 / 10, props.tdht22.cT5 / 10, props.tdht22.cT6 / 10, props.tdht22.cT7 / 10, props.tdht22.cT8 / 10, props.tdht22.cT9 / 10, props.tdht22.cT10 / 10, props.tdht22.cT11 / 10, props.tdht22.cT12 / 10,
     props.tdht22.cT13 / 10, props.tdht22.cT14 / 10, props.tdht22.cT15 / 10, props.tdht22.cT16 / 10, props.tdht22.cT17 / 10, props.tdht22.cT18 / 10, props.tdht22.cT19 / 10, props.tdht22.cT20 / 10, props.tdht22.cT21 / 10, props.tdht22.cT22 / 10,
     ]
+
 }]);
 
 </script>
 
 <template>
     <div class="card">
-        <VueApexCharts width="100%" type="line" :options="options" :series="series">
+        <VueApexCharts width="100%" type="line" curve="smooth" :options="options" :series="series">
         </VueApexCharts>
     </div>
 </template>
