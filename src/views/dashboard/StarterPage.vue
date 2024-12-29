@@ -4,7 +4,8 @@ import { IApiIndexResponseWs } from '@/interfaces';
 import BaseBreadcrumb from '@/components/BaseBreadcrumb.vue';
 import CardPage from './components/CardPage.vue';
 import ReleCard from './components/ReleCard.vue';
-//import DimmerCard from './components/DimmerCard.vue';
+import DimmerCard from './components/DimmerCard.vue';
+import timeGrafiCard from './components/timeGrafiCard.vue';
 import GraficaTempDht from './components/GraficaTempDht.vue';
 import GraficaHumDht from './components/GraficaHumDht.vue';
 import GraficaEva from './components/GraficaEva.vue';
@@ -65,13 +66,13 @@ const apiIndexResponseWs = ref<IApiIndexResponseWs>({
         ram_total: 0,
         wifi_rssi: 0,
         wifi_quality: 0,
-        tempEvaporador: "",
-        tempCondensador: "",
-        tempLm35: "",
-        tcdht22: "",
-        humdht22: "",
-        tmin: "",
-        tmax: "",
+        tempEvaporador: 0,
+        tempCondensador: 0,
+        tempLm35: 0,
+        tcdht22: 0,
+        humdht22: 0,
+        tmin: 0,
+        tmax: 0,
         buzzer_status: false
     },
     alarmas: [{
@@ -92,6 +93,10 @@ const apiIndexResponseWs = ref<IApiIndexResponseWs>({
         {
             name: "",
             status: false
+        },
+        {
+            name: "",
+            status: 0
         },
         {
             name: "",
@@ -274,6 +279,7 @@ watch(
     <!-- End Page Title -->
 
     <section class="section">
+
         <div class="row dashboard">
             <CardPage :info="apiIndexResponseWs?.info" />
         </div>
@@ -295,6 +301,7 @@ watch(
             </div>-->
 
         </div>
+
         <!-- Default Accordion -->
         <div class="accordion" id="accordionExample">
             <div class="accordion-item">
@@ -348,6 +355,8 @@ watch(
 
 
         </div><!-- End Default Accordion Example -->
-
+        <div class="row dashboard">
+            <timeGrafiCard :outputs="apiIndexResponseWs?.outputs" />
+        </div>
     </section>
 </template>
