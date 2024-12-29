@@ -1,5 +1,10 @@
 <script lang="ts" setup>
-import { defineProps } from 'vue';
+import { defineProps, onMounted, ref } from 'vue';
+
+onMounted(async () => {
+
+    setInterval(parpadear, 1000);
+});
 
 // Definición de las props
 const props = defineProps<{
@@ -7,10 +12,30 @@ const props = defineProps<{
     subtitle?: string,
     color: string,
     icon: string,
-    value: string | number,
-    valuemin?: string,
-    valuemax?: string,
+    value: number,
+    valuemin?: number | string,
+    valuemax?: number | string,
+    parpadear: string | boolean,
 }>();
+
+// parpadear
+const onOff = ref(false);
+const parpadear = () => {
+
+    if (props.parpadear == "true") {
+        if (onOff.value) {
+            onOff.value = false;
+
+        } else {
+            onOff.value = true;
+
+        }
+    } else {
+        onOff.value = false;
+    }
+
+}
+
 
 </script>
 
@@ -20,8 +45,14 @@ const props = defineProps<{
         <div class="card-body">
             <h5 class="card-title text-start">{{ props.title }}</h5>
             <div class="d-flex align-items-center">
-                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <i :class="`bi bi-${props.icon}`"></i>
+                <div class="card-icon rounded-circle d-flex bg-danger align-items-center justify-content-center"
+                    v-if="onOff && props.value >= 30">
+
+                    <i :class="`bi bi-${props.icon} text-warning`"></i>
+                </div>
+                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center" v-else>
+
+                    <i :class="`bi bi-${props.icon} `"></i>
                 </div>
                 <div class="ps-1" v-if="valuemax">
                     <h6 class="text-start ps-0">{{ props.value }}</h6>

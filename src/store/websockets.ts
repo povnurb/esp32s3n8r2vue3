@@ -45,13 +45,13 @@ export const useWebsocketsStore = defineStore("websocket",{
                 ram_total: 0,
                 wifi_rssi: 0,
                 wifi_quality: 0,
-                tempEvaporador: "",
-                tempCondensador: "",
-                tempLm35: "",
-                tcdht22: "",
-                humdht22: "",
-                tmin: "",
-                tmax: "",
+                tempEvaporador: 0,
+                tempCondensador: 0,
+                tempLm35: 0,
+                tcdht22: 0,
+                humdht22: 0,
+                tmin: 0,
+                tmax: 0,
                 buzzer_status: false
             },
             alarmas: [],
@@ -80,7 +80,7 @@ export const useWebsocketsStore = defineStore("websocket",{
                 cT20: 0,
                 cT21: 0,
                 cT22: 0,
-                cT23: 0
+                //cT23: 0
             },
             hdht22: {
                 cH0: 0,
@@ -106,7 +106,7 @@ export const useWebsocketsStore = defineStore("websocket",{
                 cH20: 0,
                 cH21: 0,
                 cH22: 0,
-                cH23: 0
+                //cH23: 0
             },
             tEva: {
                 tE0: 0,
@@ -132,7 +132,7 @@ export const useWebsocketsStore = defineStore("websocket",{
                 tE20: 0,
                 tE21: 0,
                 tE22: 0,
-                tE23: 0
+                //tE23: 0
             },
             tCond: {
                 tC0: 0,
@@ -158,7 +158,7 @@ export const useWebsocketsStore = defineStore("websocket",{
                 tC20: 0,
                 tC21: 0,
                 tC22: 0,
-                tC23: 0
+                //tC23: 0
             },
             timeM: {
                 tm0: 0,
@@ -184,7 +184,7 @@ export const useWebsocketsStore = defineStore("websocket",{
                 tm20: 0,
                 tm21: 0,
                 tm22: 0,
-                tm23: 0
+                //tm23: 0
             },
         } as IApiIndexResponseWs, //TODO: modificar el tipo a IApiIndexResponseWs
         flashFirmware: 0 as number,

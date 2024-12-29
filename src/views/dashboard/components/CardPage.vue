@@ -20,25 +20,25 @@ const props = defineProps<{
     <div class="col-xxl-3 col-md-6" v-if="info">
         <!-- card -->
         <DashboardCard title="Temperatura en sala" color="sales-card" icon="thermometer-half"
-            :value="props.info.tcdht22" :valuemin="props.info.tmin" :valuemax="props.info.tmax" />
+            :value="props.info.tcdht22" :valuemin="props.info.tmin" :valuemax="props.info.tmax" parpadear="true" />
     </div><!-- End Card de la temperatura de la sala -->
     <!-- Card de la temperatura del evaporador -->
     <div class="col-xxl-3 col-md-6" v-if="info">
         <!-- Temp evaporavor -->
         <DashboardCard title="Humedad en sala" subtitle="Indica la humedad relativa presente en la sala"
-            color="sales-card" icon="droplet-half" :value="props.info.humdht22" />
+            color="sales-card" icon="droplet-half" :value="props.info.humdht22" parpadear="false" />
     </div><!-- End Temp evaporavor Card -->
     <!-- Card de la temperatura del evaporador -->
     <div class="col-xxl-3 col-md-6" v-if="info">
         <!-- Temp evaporavor -->
         <DashboardCard title="Temperatura del evaporavor principal"
             subtitle="Indica la temperatura actual del evaporavor principal" color="sales-card" icon="thermometer-snow"
-            :value="props.info.tempEvaporador" />
+            :value="props.info.tempEvaporador" parpadear="true" />
     </div><!-- End Temp evaporavor Card -->
     <div class="col-xxl-3 col-md-6" v-if="info">
         <!-- tiempo de actividad -->
         <DashboardCard title="Temperatura del evaporador respaldo"
             subtitle="Indica la temperatura actual del evaporador de respaldo" color="sales-card"
-            icon="thermometer-snow" :value="props.info.tempCondensador" />
+            icon="thermometer-snow" :value="props.info.tempCondensador" parpadear="true" />
     </div><!-- End tiempo de actividad Card -->
 </template>

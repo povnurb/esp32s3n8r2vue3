@@ -98,7 +98,7 @@ export const postUserSession = async (): Promise<{ session: boolean, msg?: strin
         if (isErrorResponse(error)) {
             const errorData = error.response?.data;
             if (errorData && 'session' in errorData && 'msg' in errorData) {
-                return { session: false, msg: 'undefined' };
+                return { session: false, msg: 'Sesion cerrada correctamente' };
                 //return errorData;
             }
         }
