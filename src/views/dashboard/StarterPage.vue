@@ -286,11 +286,11 @@ watch(
         <!--el row los acomoda en filas-->
         <div class="row">
             <div class="col-lg-6">
-                <ReleCard :outputs="apiIndexResponseWs?.outputs[0]" />
+                <ReleCard :outputs="apiIndexResponseWs?.outputs[0]" name="RELAY1" />
             </div>
             <!--Relay2-->
             <div class="col-lg-6">
-                <ReleCard :outputs="apiIndexResponseWs?.outputs[1]" />
+                <ReleCard :outputs="apiIndexResponseWs?.outputs[1]" name="RELAY2" />
             </div>
             <!--dimmer--><!--GraficaTempDht-->
             <!--<div class="col-lg-4">
@@ -308,7 +308,7 @@ watch(
                 <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <strong>Graficas de sala</strong>
+                        <strong>Gráficas de temperatura y humedad en sala</strong>
                     </button>
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
@@ -335,7 +335,7 @@ watch(
                 <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                        <strong>Graficas de los equipos de aire acondicionado</strong>
+                        <strong>Gráficas de los equipos de aire acondicionado</strong>
                     </button>
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingOne"

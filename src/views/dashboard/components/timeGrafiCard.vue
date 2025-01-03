@@ -47,7 +47,7 @@ const handleRangeChange = async (event: Event) => {
     <div class="card info-card revenue-card" v-for="output in filteredDimmerOutputs" :key="output.name">
         <div class="card-body">
             <li class="list-group-item align-items-center justify-content-between">
-                <h5 class="card-title text-start"> Tiempo de muestreo para las graficas</h5>
+                <h5 class="card-title text-start"> Tiempo de muestreo para las gráficas</h5>
                 <!-- progress automatico -->
 
                 <div class="mt-3">

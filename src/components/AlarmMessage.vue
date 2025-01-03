@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
 import { useSaveStoreAlarma } from '@/store/save';
-import { useRouter } from 'vue-router';
 import { router } from '@/router';
 
 const navigateToPage = () => {

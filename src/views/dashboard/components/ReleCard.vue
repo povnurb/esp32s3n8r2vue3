@@ -7,10 +7,12 @@ import { postControl } from '@/api/device';
 
 const props = defineProps<{
     outputs: IOutput;
+    name: string;
 }>();
 
 const { toastErrorMsg, toastInfoMsg } = useToastAlert();
 //TODO: name1 name2 y name para el rele verificar esta funcion devuelve un array con lo que contenga lo siguiente
+
 const name = computed(() => {
     return props.outputs?.name;
 });
@@ -22,7 +24,7 @@ const status = computed(() => {
 const handleToggle = async (name: string, status: boolean) => {
     const data: IControl = {
         protocol: 'API',
-        output: `${name}`,
+        output: `${props.name}`,
         value: status
     }
     try {

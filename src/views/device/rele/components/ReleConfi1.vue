@@ -53,7 +53,7 @@ onMounted(async () => {
 const getData = async () => {
     try {
         const resp = await getRelaysConfig1();
-        console.log(resp);
+        console.log(relay1.value.FECHAON1);
         relay1.value = resp.RELAY1;
     } catch (error: unknown) {
         //console.error('Error al obtener la información del WiFi:', error);
@@ -341,8 +341,9 @@ const save = async (): Promise<void> => {
                             <div class="row mb-3">
                                 <label for="relay1_hr_encendido" class="col-sm-4 col-form-label">Hr. de
                                     encendido</label>
+
                                 <div class="col-sm-8">
-                                    <input type="time" class="relay1 form-control" id="relay1_hr_encendido"
+                                    <input type="datetime-local" class="relay1 form-control" id="relay1_hr_encendido"
                                         name="relay1_hr_encendido" v-model="relay1.FECHAON1" disabled>
                                     <i class="bi bi-info-circle me-1" data-bs-toggle="tooltip" data-bs-placement="right"
                                         title="Solo informativo"></i>
@@ -354,7 +355,7 @@ const save = async (): Promise<void> => {
                                 <label for="relay1_hr_apagado" class="col-sm-4 col-form-label">Hr. de
                                     apagado</label>
                                 <div class="col-sm-8">
-                                    <input type="time" class="relay1 form-control" name="relay1_hr_apagado"
+                                    <input type="datetime-local" class="relay1 form-control" name="relay1_hr_apagado"
                                         v-model="relay1.FECHAOFF1" disabled>
                                     <i class="bi bi-info-circle me-1" data-bs-toggle="tooltip" data-bs-placement="right"
                                         title="Solo informativo"></i>
@@ -362,10 +363,23 @@ const save = async (): Promise<void> => {
                             </div>
                         </div>
                         <hr>
-                        <!--<div id="programado1">-->
-                        <!-- Tiempo de duracion del relay -->
-                        <!--</div>-->
+
+                        <label class="col-sm-4 col-form-label" for="relay1_enviar">¿Enviar cambios por
+                            Telegram?</label>
+
+                        <div class="col-sm-8">
+                            <div class="form-check form-switch" style="padding: 7px 50px;">
+                                <input class="relay1 form-check-input" type="checkbox" id="relay1_enviar"
+                                    name="relay1_enviar" v-model="relay1.PROGRAMADO1">
+                                <label class="form-check-label" for="relay1_enviar">{{ relay1.PROGRAMADO1 ?
+                                    'Si' : 'No' }}</label>
+                            </div>
+
+                        </div>
+
+
                     </div>
+
                     <div class="col-12">
                         <button class="btn btn-primary" type="button" @click="save">
                             <i class="bi bi-floppy me-1"></i>

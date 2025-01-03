@@ -344,7 +344,7 @@ const save = async (): Promise<void> => {
                                 <label for="relay2_hr_encendido" class="col-sm-4 col-form-label">Hr. de
                                     encendido</label>
                                 <div class="col-sm-8">
-                                    <input type="time" class="relay2 form-control" id="relay2_hr_encendido"
+                                    <input type="datetime-local" class="relay2 form-control" id="relay2_hr_encendido"
                                         name="relay2_hr_encendido" v-model="relay2.FECHAON2" disabled>
                                     <i class="bi bi-info-circle me-1" data-bs-toggle="tooltip" data-bs-placement="right"
                                         title="Solo informativo"></i>
@@ -356,7 +356,7 @@ const save = async (): Promise<void> => {
                                 <label for="relay2_hr_apagado" class="col-sm-4 col-form-label">Hr. de
                                     apagado</label>
                                 <div class="col-sm-8">
-                                    <input type="time" class="relay2 form-control" id="relay2_hr_apagado"
+                                    <input type="datetime-local" class="relay2 form-control" id="relay2_hr_apagado"
                                         name="relay2_hr_apagado" v-model="relay2.FECHAOFF2" disabled>
                                     <i class="bi bi-info-circle me-1" data-bs-toggle="tooltip" data-bs-placement="right"
                                         title="Solo informativo"></i>
@@ -364,9 +364,18 @@ const save = async (): Promise<void> => {
                             </div>
                         </div>
                         <hr>
-                        <!--<div id="programado2">-->
-                        <!-- Tiempo de duracion del relay -->
-                        <!--</div>-->
+                        <label class="col-sm-4 col-form-label" for="relay2_enviar">¿Enviar cambios por
+                            Telegram?</label>
+
+                        <div class="col-sm-8">
+                            <div class="form-check form-switch" style="padding: 7px 50px;">
+                                <input class="relay1 form-check-input" type="checkbox" id="relay2_enviar"
+                                    name="relay2_enviar" v-model="relay2.PROGRAMADO2">
+                                <label class="form-check-label" for="relay2_enviar">{{ relay2.PROGRAMADO2 ?
+                                    'Si' : 'No' }}</label>
+                            </div>
+
+                        </div>
                     </div>
                     <div class="col-12">
                         <button class="btn btn-primary" type="button" @click="save">
