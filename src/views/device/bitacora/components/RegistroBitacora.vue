@@ -39,10 +39,18 @@ const saveLog = async (): Promise<void> => {
             icon: 'warning'
         });
         if (confirmed) {
-            const resp = await postBitacora(log.value);
+            // Formatear la fecha ingresada
+            const date = new Date(log.value.fecha);
+            const formattedDate = `${String(date.getDate()).padStart(2, '0')}-${String(date.getMonth() + 1).padStart(2, '0')}-${date.getFullYear()} ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
+            // Crear un nuevo objeto con la fecha formateada
+            const logEntry: IBitacora = {
+                ...log.value, //los tres puntitos es el operador de propagacion
+                fecha: formattedDate
+            };
+            const resp = await postBitacora(logEntry);
             if (resp) {
                 toastSuccessMsg("Se actualizaron los datos.");
-                saveStore.saveSuccess(true);
+                //saveStore.saveSuccess(true);
             }
         }
 
@@ -55,6 +63,8 @@ const saveLog = async (): Promise<void> => {
         }
     }
 };
+
+
 
 </script>
 
