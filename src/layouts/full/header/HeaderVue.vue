@@ -5,45 +5,16 @@ import useToastAlert from '@/composables/useToastAlert';
 import { isErrorResponse } from '@/utils/utils';
 import { postUserSession } from '@/api/device';
 import { useWebsocketsStore } from '@/store/websockets';
+import { router } from '@/router';
 
 const { toastSuccessMsg, toastErrorMsg, } = useToastAlert();
 const { swalConfirmation } = useSweetAlert();
 
 const websocketsMessage = useWebsocketsStore();//para el index
-/*
-const info = ref<IDeviceInfo>(
-    {
-        device_fecha: '',
-        device_serial: '',
-        sala: 'Uninet2',
-        device_name: '',
-        device_id: '',
-        device_mdns: '',
-        device_firmware: '',
-        device_hardware: '',
-        device_manufacture: '',
-        device_frequency: 0,
-        device_ram: 0,
-        device_spiffs: 0,
-        device_flash: 0,
-        device_time: '',
-        device_restart: 0,
-        spiffs_used: 0,
-        spiffs_total: 0,
-        ram_available: 0,
-        ram_total: 0,
-        wifi_rssi: 0,
-        wifi_quality: 0,
-        tempEvaporador: '',
-        tempCondensador: '',
-        tempLm35: '',
-        tcdht22: '',
-        humdht22: '',
-        tmin: '',
-        tmax: '',
-        buzzer_status: false
-    }
-)*/
+
+const irATime = () => {
+    router.push('/esp-time');
+}
 
 // Define la función select para seleccionar elementos del DOM
 function select(selector: string): HTMLElement | null {
@@ -186,7 +157,7 @@ const fecha = computed(() => {
         <div class="fecha">
             <!--<div class="fw-semibold"><i class="calendar-event"></i>{{time_update}}</div>-->
             <i class="bi bi-calendar-event"></i>
-            <div>Dia: {{ fecha }}</div>
+            <div role="alert" @click="irATime" style="cursor: pointer">Dia: {{ fecha }}</div>
 
         </div>
         <nav class="header-nav ms-auto">

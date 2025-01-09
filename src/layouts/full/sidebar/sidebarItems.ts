@@ -94,6 +94,11 @@ const sidebarItems: IMenu[] = [
                 to: '/esp-telegram'
             },
             {
+                title: 'Bitácora', 
+                icon: 'circle', 
+                to: '/esp-bitacora'
+            },
+            {
                 title: 'Ajuste de fecha y hora', 
                 icon: 'circle', 
                 to: '/esp-time'

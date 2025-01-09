@@ -112,6 +112,14 @@ const MainRoutes = {
             }
         },
         {
+            name: 'Bitacora',
+            path: '/esp-bitacora',
+            component: ()=> import('@/views/device/bitacora/BitacoraPage.vue'),
+            meta: {
+                title: 'Registro de eventos',
+            }
+        },
+        {
             name: 'Profile',
             path: '/esp-admin',
             component: ()=> import('@/views/device/user/UserPage.vue'),

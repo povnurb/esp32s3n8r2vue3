@@ -1,50 +1,47 @@
 <script setup lang="ts">
 import DataTable from 'datatables.net-vue3';
 import DataTablesCore from 'datatables.net';
-import { getHistorial } from '@/api/alarms';
+import { getBitacora } from '@/api/bitacora';
 import useToastAlert from '@/composables/useToastAlert';
 import { ref, defineProps, onMounted } from 'vue';
-//import { IHistory } from '@/interfaces/infoDashboard';
 import { isErrorResponse } from '@/utils/utils';
 //https://datatables.net/blog/2022/vue
 DataTable.use(DataTablesCore);
 const { toastErrorMsg } = useToastAlert();
-/*const elHistory = ref<IHistory>({
-    alarma: "",
-    fechas: "",
-    status: false,
-})*/
 
-type IHistory = {
-    alarma: string;
-    fechas: string;
-    status: boolean;
+
+type IBitacora = {
+    nombretec: string;
+    fecha: string;
+    tipo: string;
+    info: string;
 };
 
-// Cambiar `elHistory` para que sea un array de IHistory
-const elHistory = ref<IHistory[]>([]); //se cambia de un array de objetos a un array de arrays
+// Cambiar `laBitacora` para que sea un array de IBitacora
+const laBitacora = ref<IBitacora[]>([]); //se cambia de un array de objetos a un array de arrays
 
 const data = ref<string[][]>([]); // Array de arrays para la DataTable
 
 // cuando se carga el componente
 onMounted(async () => {
-    await elHistorial();
+    await elRegistro();
 });
 
-const elHistorial = async () => {
+const elRegistro = async () => {
     try {
-        const resp = await getHistorial();
+        const resp = await getBitacora();
         if (Array.isArray(resp)) {
             // Mapear los datos para la DataTable
-            elHistory.value = resp.map((item) => ({
-                alarma: item.alarma,
-                fechas: item.fechas,
-                status: item.status,
+            laBitacora.value = resp.map((item) => ({
+                nombretec: item.nombretec,
+                fecha: item.fecha,
+                tipo: item.tipo,
+                info: item.info,
             }));
         } else {
             console.error("La respuesta no es un array:", resp);
         }
-        console.log(elHistory.value);
+        console.log(laBitacora.value);
     } catch (error: unknown) {
         //console.error('Error al obtener la información del WiFi:', error);
         if (isErrorResponse(error)) {
@@ -69,18 +66,19 @@ const elHistorial = async () => {
 
 <template>
     <div class="col-lg-12 card ">
-        <h5 class="card-title">Aquí puedes buscar alarmas por nombre, por fecha o por estatus</h5>
-        <DataTable :data="elHistory.map(item => [item.alarma, item.fechas, item.status ? 'Se presentó' : 'Se clareó'])"
+        <h5 class="card-title">Aquí puedes consultar los eventos registrados</h5>
+        <DataTable :data="laBitacora.map(item => [item.nombretec, item.fecha, item.tipo, item.info])"
             class="display table datatable">
             <thead>
                 <tr>
                     <th>
-                        <b>Alarma </b>
+                        <b>Tecnico </b>
                     </th>
                     <th>fecha</th>
                     <!--<th>Value</th>-->
                     <!--<th data-type="date" data-format="YYYY/DD/MM">Start Date</th>-->
-                    <th>presente</th>
+                    <th>Categoria</th>
+                    <th>info</th>
                 </tr>
             </thead>
         </DataTable>
