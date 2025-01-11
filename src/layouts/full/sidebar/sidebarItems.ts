@@ -94,6 +94,11 @@ const sidebarItems: IMenu[] = [
                 to: '/esp-telegram'
             },
             {
+                title: 'WhatsApp',  
+                icon: 'circle', 
+                to: '/esp-whatsapp'
+            },
+            {
                 title: 'Bitácora', 
                 icon: 'circle', 
                 to: '/esp-bitacora'

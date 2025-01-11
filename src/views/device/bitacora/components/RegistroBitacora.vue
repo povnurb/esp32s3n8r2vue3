@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { postBitacora } from '@/api/bitacora'
 import { IBitacora } from '@/interfaces/bitacora';
-import { defineComponent, ref, } from 'vue';
+import { defineEmits, ref, } from 'vue';
 import { isErrorResponse } from '@/utils/utils';
 import useToastAlert from '@/composables/useToastAlert';
 import useSweetAlert from '@/composables/useSweetAlert';
@@ -9,6 +9,7 @@ import { useSaveStore, useSaveStoreAlarma } from '@/store/save';
 
 const saveStore = useSaveStore();
 const saveStoreAlarma = useSaveStoreAlarma();
+const emit = defineEmits(['actualizar-historial']);
 
 const { toastErrorMsg, toastSuccessMsg } = useToastAlert();
 const { swalConfirmation } = useSweetAlert();
@@ -50,6 +51,7 @@ const saveLog = async (): Promise<void> => {
             const resp = await postBitacora(logEntry);
             if (resp) {
                 toastSuccessMsg("Se actualizaron los datos.");
+                emit('actualizar-historial');
                 //saveStore.saveSuccess(true);
             }
         }

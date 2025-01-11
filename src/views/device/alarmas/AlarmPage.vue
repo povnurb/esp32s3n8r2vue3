@@ -13,7 +13,7 @@ import AlarmasDownload from './components/AlarmasDownload.vue';
 //--a ver si jalan
 import { ref, onMounted } from 'vue';
 const componentKey = ref(0);
-
+/*
 onMounted(async () => {
 
     setInterval(actualizar, 2000);
@@ -29,7 +29,7 @@ const actualizar = () => {
         componentKey.value -= 1;
 
     }
-}
+}*/
 
 //---
 const page = 'Alarmas';

@@ -1,23 +1,28 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
 import { IAlarmasConfig } from '@/interfaces';
+import { IApiIndexResponseWs } from '@/interfaces';
 import FooterVue from './footer/FooterVue.vue';
 import HeaderVue from './header/HeaderVue.vue';
 import SidebarVue from './sidebar/SidebarVue.vue';
 import AlertMessage from '@/components/AlertMessage.vue';
+import AlertaMemoria from '@/components/AlertaMemoria.vue';
 import AlarmMessage from '@/components/AlarmMessage.vue';
 import { scanAlarmas } from '@/api/alarms';
 import { isErrorResponse } from '@/utils/utils';
 import useToastAlert from '@/composables/useToastAlert';
-import { useSaveStore, useSaveStoreAlarma } from '@/store/save';
+import { useSaveStore, useSaveStoreAlarma, useSaveStoreSpiffs } from '@/store/save';
+import { useWebsocketsStore } from '@/store/websockets';
 import { onMounted, onUnmounted, ref, watch, reactive } from 'vue';
 const saveStore = useSaveStore();
 const saveStoreAlarma = useSaveStoreAlarma();
+const saveStoreSpiffs = useSaveStoreSpiffs();
 const { toastErrorMsg } = useToastAlert();
 const mostrar = ref(true);
-
+const websocketsMessage = useWebsocketsStore();//para el index
 const save = ref(false);
 const saveAlarm = ref(false);
+const saveSpiffs = ref(false);
 
 const alarmas = ref<{ status: boolean }[]>([]);
 
@@ -32,11 +37,13 @@ onMounted(() => {
 
     save.value = saveStore.getSaveStore();
     saveAlarm.value = saveStoreAlarma.getAlarmaStore();
+    saveSpiffs.value = saveStoreSpiffs.getspiffsStore();
 });
 
 onUnmounted(() => {
     // Limpia el intervalo cuando se desmonte el componente
     clearInterval(intervalId);
+
 });
 
 watch(
@@ -47,6 +54,11 @@ watch(
 watch(
     () => saveStoreAlarma.getAlarmaStore(), (newValueAlarm) => {
         saveAlarm.value = newValueAlarm; //segun si cambia de valor 
+    }
+);
+watch(
+    () => saveStoreSpiffs.getspiffsStore(), (newValueSpiffs) => {
+        saveSpiffs.value = newValueSpiffs; //segun si cambia de valor 
     }
 );
 
@@ -66,6 +78,17 @@ watch(
     { deep: true }
 );
 
+watch(
+    () => websocketsMessage.message as IApiIndexResponseWs,
+    (newMessage) => {
+        if ((newMessage.info.spiffs_used / newMessage.info.device_spiffs) * 100 >= 60) {
+            //saveStoreSpiffs.alarmaSuccess(true);
+            saveStoreSpiffs.spiffsSuccess(true);
+            saveSpiffs.value = true;
+
+        }
+    }
+)
 
 const scanAlarms = async () => {
     try {
@@ -97,6 +120,7 @@ const scanAlarms = async () => {
                 <div class="row">
                     <AlertMessage v-if="save" />
                     <AlarmMessage v-if="saveAlarm" :mostrar="mostrar" />
+                    <AlertaMemoria v-if="saveSpiffs" />
                 </div>
 
             </section>

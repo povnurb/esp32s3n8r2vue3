@@ -64,6 +64,14 @@ const MainRoutes = {
             }
         },
         {
+            name: 'Whatsapp',
+            path: '/esp-whatsapp',
+            component: ()=> import('@/views/device/whatsapp/whatsappPage.vue'),
+            meta: {
+                title: 'WhatsApp',
+            }
+        },
+        {
             name: 'Historial',
             path: '/esp-historial',
             component: ()=> import('@/views/device/historial/HistorialPage.vue'),

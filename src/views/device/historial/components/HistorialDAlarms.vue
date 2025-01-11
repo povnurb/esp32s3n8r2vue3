@@ -69,7 +69,7 @@ const elHistorial = async () => {
 
 <template>
     <div class="col-lg-12 card ">
-        <h5 class="card-title">Aquí puedes buscar alarmas por nombre, por fecha o por estatus</h5>
+        <h5 class="card-title">Aquí puedes buscar alarmas por nombre o por fecha</h5>
         <DataTable :data="elHistory.map(item => [item.alarma, item.fechas, item.status ? 'Se presentó' : 'Se clareó'])"
             class="display table datatable">
             <thead>

@@ -3,7 +3,7 @@ import BaseBreadcrumb from '@/components/BaseBreadcrumb.vue';
 import ConfTelegram from './components/ConfTelegram.vue';
 
 
-const page = 'Configuración del tiempo del dispositivo';
+const page = 'Configuración de Telegram';
 
 const breadcrumbs = [
     { text: 'Inicio', disabled: false, to: '/' },

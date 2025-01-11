@@ -3,7 +3,7 @@ import DataTable from 'datatables.net-vue3';
 import DataTablesCore from 'datatables.net';
 import { getBitacora } from '@/api/bitacora';
 import useToastAlert from '@/composables/useToastAlert';
-import { ref, defineProps, onMounted } from 'vue';
+import { ref, defineExpose, onMounted } from 'vue';
 import { isErrorResponse } from '@/utils/utils';
 //https://datatables.net/blog/2022/vue
 DataTable.use(DataTablesCore);
@@ -16,6 +16,7 @@ type IBitacora = {
     tipo: string;
     info: string;
 };
+
 
 // Cambiar `laBitacora` para que sea un array de IBitacora
 const laBitacora = ref<IBitacora[]>([]); //se cambia de un array de objetos a un array de arrays
@@ -53,13 +54,10 @@ const elRegistro = async () => {
         }
     }
 }
-// lo qe se necesita
-/*
-[
-  ["El historial de alarmas inicia", "26-12-2024 21:36", "Inactivo"],
-  ["ALARMA IO38", "26-12-2024 21:36", "Activo"]
-];
-*/
+
+defineExpose({
+    recargar: elRegistro
+});
 
 
 </script>

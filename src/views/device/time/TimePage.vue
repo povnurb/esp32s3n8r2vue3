@@ -3,7 +3,7 @@ import BaseBreadcrumb from '@/components/BaseBreadcrumb.vue';
 import ConfigTime from './components/ConfigTime.vue';
 
 
-const page = 'Configuración del tiempo del dispositivo';
+const page = 'Configuración de fecha y hora';
 
 const breadcrumbs = [
     { text: 'Inicio', disabled: false, to: '/' },

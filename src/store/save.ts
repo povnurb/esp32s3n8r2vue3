@@ -43,3 +43,25 @@ export const useSaveStoreAlarma = defineStore('alarmaPresente',{
         }
     }
 });
+
+export const useSaveStoreSpiffs = defineStore('spiffs',{
+    //
+    state: () => ({
+        isSavedSpiffs: false,//estado inicial
+    }),
+    persist: true, //para que cuando se recargue la pagina siga en el local storage
+    actions: {
+        spiffsSuccess(isSavedSpiffs: boolean) {
+            this.isSavedSpiffs = isSavedSpiffs;
+        },
+        spiffsError() {
+            this.isSavedSpiffs = false;
+        },
+        resetSpiffs() {
+            this.isSavedSpiffs = false;
+        },
+        getspiffsStore() {
+            return this.isSavedSpiffs;
+        }
+    }
+});
