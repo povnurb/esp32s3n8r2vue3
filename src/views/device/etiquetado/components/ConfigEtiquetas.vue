@@ -120,7 +120,8 @@ const save = async (): Promise<void> => {
                         <label for="">Cambiar el etiquetado de la alarma #1</label>
                         <input class="col-6" type="text" :class="`alarma1 form-control`"
                             :placeholder="`${etiquetas.alarmas?.[0].name} `" v-model="name1">
-                        <label class="col-6 col-form-label" for="alrm1">¿Registrar Alarma y avisar por Telegram?</label>
+                        <label class="col-6 col-form-label" for="alrm1">¿Registrar Alarma y avisar por Telegram o
+                            WhatsApp?</label>
                         <div class="col-2 form-check form-switch" style="padding: 7px 50px;">
                             <input class="relay1 form-check-input" type="checkbox" id="alrm1" name="alrm1"
                                 v-model="reconocer1">
@@ -131,7 +132,8 @@ const save = async (): Promise<void> => {
                         <label for="">Cambiar el etiquetado de la alarma #2</label>
                         <input type="text" :class="`alarma1 form-control`"
                             :placeholder="`${etiquetas.alarmas?.[0].name} `" v-model="name2">
-                        <label class="col-6 col-form-label" for="alrm2">¿Registrar Alarma y avisar por Telegram?</label>
+                        <label class="col-6 col-form-label" for="alrm2">¿Registrar Alarma y avisar por Telegram o
+                            WhatsApp?</label>
                         <div class="col-2 form-check form-switch" style="padding: 7px 50px;">
                             <input class="relay1 form-check-input" type="checkbox" id="alrm2" name="alrm2"
                                 v-model="reconocer2">
@@ -142,7 +144,8 @@ const save = async (): Promise<void> => {
                         <label for="">Cambiar el etiquetado de la alarma #3</label>
                         <input type="text" :class="`alarma1 form-control`"
                             :placeholder="`${etiquetas.alarmas?.[0].name} `" v-model="name3">
-                        <label class="col-6 col-form-label" for="alrm3">¿Registrar Alarma y avisar por Telegram?</label>
+                        <label class="col-6 col-form-label" for="alrm3">¿Registrar Alarma y avisar por Telegram o
+                            WhatsApp?</label>
                         <div class="col-2 form-check form-switch" style="padding: 7px 50px;">
                             <input class="relay1 form-check-input" type="checkbox" id="alrm3" name="alrm3"
                                 v-model="reconocer3">
@@ -153,7 +156,8 @@ const save = async (): Promise<void> => {
                         <label for="">Cambiar el etiquetado de la alarma #4</label>
                         <input type="text" :class="`alarma1 form-control`"
                             :placeholder="`${etiquetas.alarmas?.[0].name} `" v-model="name4">
-                        <label class="col-6 col-form-label" for="alrm4">¿Registrar Alarma y avisar por Telegram?</label>
+                        <label class="col-6 col-form-label" for="alrm4">¿Registrar Alarma y avisar por Telegram o
+                            WhatsApp?</label>
                         <div class="col-2 form-check form-switch" style="padding: 7px 50px;">
                             <input class="relay1 form-check-input" type="checkbox" id="alrm4" name="alrm4"
                                 v-model="reconocer4">
@@ -164,7 +168,8 @@ const save = async (): Promise<void> => {
                         <label for="">Cambiar el etiquetado de la alarma #5</label>
                         <input type="text" :class="`alarma1 form-control`"
                             :placeholder="`${etiquetas.alarmas?.[0].name} `" v-model="name5">
-                        <label class="col-6 col-form-label" for="alrm5">¿Registrar Alarma y avisar por Telegram?</label>
+                        <label class="col-6 col-form-label" for="alrm5">¿Registrar Alarma y avisar por Telegram o
+                            WhatsApp?</label>
                         <div class="col-2 form-check form-switch" style="padding: 7px 50px;">
                             <input class="relay1 form-check-input" type="checkbox" id="alrm5" name="alrm5"
                                 v-model="reconocer5">
@@ -175,7 +180,8 @@ const save = async (): Promise<void> => {
                         <label for="">Cambiar el etiquetado de la alarma #6</label>
                         <input type="text" :class="`alarma1 form-control`"
                             :placeholder="`${etiquetas.alarmas?.[0].name} `" v-model="name6">
-                        <label class="col-6 col-form-label" for="alrm6">¿Registrar Alarma y avisar por Telegram?</label>
+                        <label class="col-6 col-form-label" for="alrm6">¿Registrar Alarma y avisar por Telegram o
+                            WhatsApp?</label>
                         <div class="col-2 form-check form-switch" style="padding: 7px 50px;">
                             <input class="relay1 form-check-input" type="checkbox" id="alrm6" name="alrm6"
                                 v-model="reconocer6">
@@ -186,7 +192,8 @@ const save = async (): Promise<void> => {
                         <label for="">Cambiar el etiquetado de la alarma #7</label>
                         <input type="text" :class="`alarma1 form-control`"
                             :placeholder="`${etiquetas.alarmas?.[0].name} `" v-model="name7">
-                        <label class="col-6 col-form-label" for="alrm7">¿Registrar alarma y avisar por Telegram?</label>
+                        <label class="col-6 col-form-label" for="alrm7">¿Registrar alarma y avisar por Telegram o
+                            WhatsApp?</label>
                         <div class="col-2 form-check form-switch" style="padding: 7px 50px;">
                             <input class="relay1 form-check-input" type="checkbox" id="alrm7" name="alrm7"
                                 v-model="reconocer7">
@@ -197,7 +204,8 @@ const save = async (): Promise<void> => {
                         <label for="">Cambiar el etiquetado de la alarma #8</label>
                         <input type="text" :class="`alarma1 form-control`"
                             :placeholder="`${etiquetas.alarmas?.[0].name} `" v-model="name8">
-                        <label class="col-6 col-form-label" for="alrm8">¿Registrar Alarma y avisar por Telegram?</label>
+                        <label class="col-6 col-form-label" for="alrm8">¿Registrar Alarma y avisar por Telegram o
+                            WhatsApp?</label>
                         <div class="col-2 form-check form-switch" style="padding: 7px 50px;">
                             <input class="relay1 form-check-input" type="checkbox" id="alrm8" name="alrm8"
                                 v-model="reconocer8">
