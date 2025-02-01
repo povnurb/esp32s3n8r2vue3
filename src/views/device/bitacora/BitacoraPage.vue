@@ -33,7 +33,7 @@ const actualizarHistorial = () => {
     <section class="section">
         <div class="row">
 
-            <code>Ejemplos: Mantenimientos a G.E, hrs trabajadas, diesel, Mantenimientos a Climas, cambios de tarjetas, daños en general e instalaciones de equipos nuevos.  </code>
+            <code>Ejemplos: Mantenimientos a G.E, hrs trabajadas, restauraciones, suministro de diesel, mantenimientos a Climas, cambios de tarjetas, daños en general e instalaciones de equipos nuevos.  </code>
 
             <Registro @actualizar-historial="actualizarHistorial" />
             <DownloadBitacora />
