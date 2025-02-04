@@ -195,16 +195,7 @@ watch(
                         </div>
                     </div>
 
-                    <div class="row mb-3 mt-3"><label class="col-sm-4 col-form-label mt-2" for="mqtt_willTopic">Topico
-                            última voluntad</label>
-                        <div class="col-sm-8 mt-2">
-                            <input class="form-control" type="text" placeholder="Topico última voluntad"
-                                id="mqtt_willTopic" name="mqtt_willTopic" v-model="mqtt.mqtt_willTopic" disabled>
-                            <i class="bi bi-info-circle me-1" data-bs-toggle="tooltip" data-bs-placement="right"
-                                title="Solo informativo"></i>
-                        </div>
-                    </div>
-                    <div class="row mb-3 mt-3"><label class="col-sm-4 col-form-label mt-2" for="mqtt_sendTopic">Topico
+                    <div class="row mb-3 mt-3"><label class="col-sm-4 col-form-label mt-2" for="mqtt_sendTopic">Tópico
                             de publicación</label>
                         <div class="col-sm-8 mt-2">
                             <input class="form-control" type="text" placeholder="Topico de publicación"
@@ -214,13 +205,22 @@ watch(
                         </div>
                     </div>
                     <div class="row mb-3 mt-3"><label class="col-sm-4 col-form-label mt-2"
-                            for="mqtt_commandTopic">Topico
+                            for="mqtt_commandTopic">Tópico
                             de comandos</label>
                         <div class="col-sm-8 mt-2">
                             <input class="form-control" type="text" placeholder="Topico de comandos"
                                 id="mqtt_commandTopic" name="mqtt_commandTopic" v-model="mqtt.mqtt_commandTopic"
                                 disabled><i class="bi bi-info-circle me-1" data-bs-toggle="tooltip"
                                 data-bs-placement="right" title="Solo informativo"></i>
+                        </div>
+                    </div>
+                    <div class="row mb-3 mt-3"><label class="col-sm-4 col-form-label mt-2" for="mqtt_willTopic">Tópico
+                            última voluntad</label>
+                        <div class="col-sm-8 mt-2">
+                            <input class="form-control" type="text" placeholder="Topico última voluntad"
+                                id="mqtt_willTopic" name="mqtt_willTopic" v-model="mqtt.mqtt_willTopic" disabled>
+                            <i class="bi bi-info-circle me-1" data-bs-toggle="tooltip" data-bs-placement="right"
+                                title="Solo informativo"></i>
                         </div>
                     </div>
                     <!-- auto -->
