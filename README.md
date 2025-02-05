@@ -59,7 +59,7 @@ npm install pinia
 npm install pinia-plugin-persistedstate
 npm install apexcharts --save
 npm install --save vue3-apexcharts
-
+npm install --save xlsx
 ```
 
 ## convertir a GZIP
